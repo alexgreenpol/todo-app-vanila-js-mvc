@@ -1,0 +1,112 @@
+.todo-list {
+  position: relative;
+  padding-left: 0;
+  padding: 90px 56px 0 56px;
+  margin-top: 0;
+  border-radius: 41px 0 0 0;
+  background-color: #fff;
+}
+.todo-list:before {
+  content: "";
+  width: 100px;
+  height: 100px;
+  background: #889DEA;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+}
+.todo-list__item {
+  position: relative;
+  padding-left: 26px;
+  list-style: none;
+  border-bottom: 1px solid #C7C7C7;
+  margin-bottom: 20px;
+}
+.todo-list__item--active {
+  border-color: #889DEA;
+}
+.todo-list__item--active .todo-list__description {
+  color: #bbbbbb;
+}
+.todo-list__item--done .todo-list__description {
+  color: #bbbbbb;
+  text-decoration: line-through;
+}
+.todo-list__date {
+  font-size: 12px;
+  color: #889DEA;
+  margin: 5px 0;
+}
+.todo-list__description {
+  background: transparent;
+  font-size: 14px;
+  line-height: 22px;
+  margin: 5px 0;
+  width: calc(100% - 100px);
+  height: auto;
+  border: none;
+  resize: none;
+  overflow: hidden;
+}
+.todo-list__buttons {
+  position: absolute;
+  right: 32px;
+  top: -6px;
+}
+.todo-list__buttons button {
+  border: none;
+}
+.todo-list__buttons button img {
+  width: 24px;
+  height: 24px;
+}
+.todo-list__checkbox input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+.todo-list__checkbox .checkmark {
+  position: absolute;
+  top: -2px;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  border: 1px solid #889DEA;
+  border-radius: 2px;
+}
+.todo-list__checkbox:hover input ~ .checkmark {
+  background-color: #f7f7f7;
+}
+.todo-list__checkbox input:checked ~ .checkmark {
+  background-color: #889DEA;
+}
+.todo-list__checkbox .checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+.todo-list__checkbox input:checked ~ .checkmark:after {
+  display: block;
+}
+.todo-list__checkbox .checkmark:after {
+  left: 5px;
+  top: 1px;
+  width: 4px;
+  height: 8px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+@media screen and (max-width: 768px) {
+  .todo-list__buttons {
+    right: 0;
+  }
+  .todo-list__description {
+    width: calc(100% - 30px);
+  }
+}

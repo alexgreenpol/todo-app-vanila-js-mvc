@@ -1,0 +1,97 @@
+/* helpers */
+@import (reference) "helpers/_variables";
+@import (reference) "helpers/_mixins";
+
+/* base styles */
+@import "base/_normalize";
+
+/* components */
+@import "../../app/components/todoCounter/todoCounter.less";
+@import "../../app/components/todoList/todoList.less";
+@import "../../app/components/taskCreator/taskCreator.less";
+
+
+/*custom styles*/
+
+* {
+	font-family: 'Poppins', sans-serif;
+	box-sizing: border-box;
+}
+button {
+	cursor: pointer;
+}
+.btn {
+	width: 208px;
+	height: 48px;	
+	border: none;
+	border-radius: 11px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin: 0 auto;
+	transition: all .2s;
+
+	&:hover {
+		background: @primary-light;
+	}
+	&>img {
+		margin: 0 5px;
+	}
+	&--green {
+		background: @secondary;
+		color: @white;
+	}
+	&--square {
+		background: @secondary;
+		width: 48px;
+		height: 48px;
+		transform: rotate(-45deg);
+
+		img {
+			width: 30px;
+			transform: rotate(45deg);
+		}
+	}
+}
+
+.edit-btn {
+	width: 27px;
+	height: 27px;
+	.bg-img('edit-icon.svg');
+	background-size: 24px;
+
+	&--active {
+		.bg-img('check-icon-purpure.svg');
+	}
+	&:hover {
+		.bg-img('edit-icon-purpure.svg');
+	}
+	&--active:hover {
+		.bg-img('check-icon-purpure.svg');
+	}
+	&:disabled {
+		.bg-img('edit-icon.svg');
+		cursor: not-allowed;
+		opacity: .3;
+	}
+}
+
+.remove-btn {
+	width: 27px;
+	height: 27px;
+	.bg-img('remove-icon.svg');
+	background-size: 24px;
+
+	&--active {
+		.bg-img('remove-icon-purpure.svg');
+	}
+	&:hover {
+		.bg-img('remove-icon-purpure.svg');
+	}
+}
+
+.todo-app {
+	max-width: 768px;
+	min-width: 320px;
+	margin: 50px auto;
+}
